@@ -114,6 +114,9 @@ button:disabled {
 .modal-content {
   width: 100%;
   max-width: 340px;
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  overflow-wrap: anywhere;
   background: white;
   border-radius: 16px;
   padding: 30px 22px;
@@ -133,6 +136,16 @@ button:disabled {
   font-weight: bold;
   line-height: 1.5;
   color: #222;
+}
+
+.modal-content .reward-image {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: min(200px, 30dvh);
+  margin: 18px auto 0;
+  object-fit: contain;
 }
 
 .modal-content .reward {
