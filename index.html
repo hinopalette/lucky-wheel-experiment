@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Lucky Wheel Game</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="app">
+<main>
+
+  <h1 class="game-title">
+    ルーレットゲームへようこそ！<br>
+  </h1>
+
+  <p class="instruction">
+    iPhoneを振って<br>
+    ルーレットを回してください<br>
+    無料でコーラをゲットできるかも？
+  </p>
+
+  <div class="wheel-area">
+    <svg viewBox="0 0 300 295"
+         xmlns="http://www.w3.org/2000/svg">
+
+      <!-- 台座 -->
+      <rect x="111" y="258"
+            width="78" height="13"
+            rx="4" fill="#c71f48"/>
+
+      <rect x="137" y="234"
+            width="26" height="27"
+            fill="#c71f48"/>
+
+      <!-- ルーレット -->
+      <circle cx="150" cy="137" r="111"
+              fill="#bc1839"/>
+
+      <circle cx="150" cy="137" r="99"
+              fill="#ffda50"/>
+
+      <g id="lights"></g>
+
+      <circle cx="150" cy="137" r="82"
+              fill="#fff0a8"
+              stroke="#f4b93d"
+              stroke-width="2"/>
+
+      <!-- 回転する針 -->
+      <g id="pointer">
+        <path
+          d="M150 82 L139 144 Q150 162 161 144 Z"
+          fill="#c51d3f"
+          stroke="#d9a320"
+          stroke-width="3"/>
+
+        <circle cx="150" cy="144" r="7"
+                fill="#ffd24b"/>
+      </g>
+    </svg>
+  </div>
+
+  <p id="status" aria-live="polite"></p>
+
+  <button id="startButton">
+    センサーを有効にして開始
+  </button>
+
+  <div class="debug" id="debug">
+    Shake count: 0<br>
+    Motion level: --<br>
+    Last shake: --<br>
+    Interaction time: -- ms
+  </div>
+
+</main>
+</div>
+
+<!-- 結果ポップアップ -->
+<div class="modal"
+     id="resultModal"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="resultTitle">
+
+  <div class="modal-content">
+    <h2 id="resultTitle">
+      Congratulations!
+    </h2>
+
+    <p>
+      You Win a Free Cola!
+    </p>
+
+    <div class="reward">
+      コーラ獲得！
+    </div>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/game.js"></script>
+<script src="js/input.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
